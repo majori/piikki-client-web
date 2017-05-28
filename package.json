@@ -1,0 +1,22 @@
+{
+  "name": "piikki-client-web",
+  "version": "0.0.1",
+  "description": "Browser interface for Piikki",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "dev:client": "webpack-dev-server --config ./src/client/webpack.config.dev.js --env development --open --output-pathinfo",
+    "dev:server": "concurrently \"tsc --watch -p ./src/server/tsconfig.json\" \"nodemon --delay 1 --inspect=5858 ./dist/index.js\"",
+    "build": "concurrently \"npm run build:client\" \"npm run build:server\"",
+    "build:client": "webpack --config ./src/client/webpack.config.prod.js",
+    "build:server": "tsc --listEmittedFiles -p ./src/server/tsconfig.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Antti Kivimäki",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^3.4.0",
+    "piikki-client-web_client": "file:./src/client",
+    "piikki-client-web_server": "file:./src/server"
+  }
+}
