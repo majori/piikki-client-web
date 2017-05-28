@@ -7,6 +7,9 @@
     "express": "^4.15.3",
     "lodash": "^4.17.4",
     "socket.io": "^2.0.1",
-    "sqlite": "^2.8.0"
+    "sqlite": "^2.8.0",
+    "nodemon": "^1.11.0",
+    "typescript": "^2.3.3",
+    "tslint": "^5.3.2",
   }
 }
