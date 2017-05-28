@@ -11,5 +11,6 @@
     "nodemon": "^1.11.0",
     "typescript": "^2.3.3",
     "tslint": "^5.3.2",
+    "nfc-pcsc": "^0.5.0"
   }
 }

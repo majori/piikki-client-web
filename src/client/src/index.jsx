@@ -37,9 +37,6 @@ const store = createStore(
 );
 
 const render = (Component) => {
-  console.log(Provider);
-  console.log(ConnectedRouter);
-  console.log(Component);
   ReactDOM.render(
     <Provider store={store}>
       <ConnectedRouter history={history}>
