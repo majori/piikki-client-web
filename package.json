@@ -15,7 +15,6 @@
   "author": "Antti Kivimäki",
   "license": "MIT",
   "dependencies": {
-    "concurrently": "^3.4.0",
     "piikki-client-web_client": "file:./src/client",
     "piikki-client-web_server": "file:./src/server"
   }

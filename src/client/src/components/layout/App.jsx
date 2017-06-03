@@ -1,9 +1,19 @@
+// @flow
 import React from 'react';
 
-const App = () => (
-  <div>
-    Hello World!
-  </div>
-);
+class App extends React.Component {
+
+  componentWillMount() {
+
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Hello World!</h1>
+      </div>
+    );
+  }
+}
 
 export default App;
