@@ -14,6 +14,11 @@ export const defaultState = fromJS({
     loading: false,
     results: {},
   },
+
+  transaction: {
+    loading: false,
+    results: {},
+  }
 });
 
 export default handleActions({
@@ -21,4 +26,5 @@ export default handleActions({
   [actions.receive]: (state, action) => state.setIn([action.payload, 'loading'], false),
   [actions.users.get]: (state, action) => state.setIn(['users', 'results'], List(action.payload)),
   [actions.user.get]: (state, action) => state.setIn(['user', 'results'], Map(action.payload)),
+  [actions.transaction.post]: (state, action) => state.setIn(['transaction', 'results'], Map(action.payload))
 }, defaultState);

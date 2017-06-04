@@ -1,5 +1,11 @@
 // @flow
 import React from 'react';
+import { Route } from 'react-router-dom';
+
+import Header from './Header';
+
+import Group from '../pages/Group';
+import User from '../pages/User';
 
 class App extends React.Component {
 
@@ -9,8 +15,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Hello World!</h1>
+      <div className="container">
+        <Header />
+        <Route path="/group" component={Group} />
+        <Route path="/user" component={User} />
       </div>
     );
   }

@@ -1,22 +1,22 @@
 // @flow
-import { createActions, createAction } from 'redux-actions';
+import { createActions } from 'redux-actions';
 import * as api from '../services/api';
 
-const REQUEST = createAction('REQUEST');
-const RECEIVE = createAction('RECEIVE');
-const GET = createAction('GET');
-
 const actions = createActions({
-  REQUEST,
-  RECEIVE,
+  REQUEST: (target: string) => target,
+  RECEIVE: (target: string) => target,
 
   USERS: {
-    GET,
+    GET: (users: User[]) => users,
   },
 
   USER: {
-    GET,
+    GET: (user: User) => user,
   },
+
+  TRANSACTION: {
+    POST: (username: string, amount: number) => ({ username, amount })
+  }
 });
 
 export default actions;

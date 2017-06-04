@@ -1,3 +1,8 @@
-.x {
+@import "variables";
 
-}
+@import "materialize-settings"; // Variables for materialize
+@import "~materialize-css/sass/materialize";
+@import "~material-design-icons/iconfont/material-icons.css";
+
+@import "global";
+@import "./components/components";
