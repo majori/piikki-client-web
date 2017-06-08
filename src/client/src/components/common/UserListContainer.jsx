@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { getUsers } from '../../actions/api';
+import { sortUsersBySaldo } from '../../selectors/userSelector';
 
 import UserList from './UserList';
 
@@ -25,7 +26,7 @@ class UserListContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  users: state.api.getIn(['users', 'results']).toJS(),
+  users: sortUsersBySaldo(state),
   loading: state.api.getIn(['users', 'loading']),
 });
 

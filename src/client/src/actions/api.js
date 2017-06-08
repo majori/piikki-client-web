@@ -1,6 +1,8 @@
 // @flow
+import { Moment } from 'moment';
 import { createActions } from 'redux-actions';
 import * as api from '../services/api';
+
 
 const actions = createActions({
   REQUEST: (target: string) => target,
@@ -16,6 +18,10 @@ const actions = createActions({
 
   TRANSACTION: {
     POST: (username: string, amount: number) => ({ username, amount })
+  },
+
+  GROUP_SALDOS: {
+    GET: (saldos) => saldos,
   }
 });
 
@@ -34,5 +40,13 @@ export function getUser(username: string) {
     dispatch(actions.request('user'));
     dispatch(actions.user.get(await api.getUser(username)));
     dispatch(actions.receive('user'));
+  };
+}
+
+export function getDailyGroupSaldos(fromDate: Moment) {
+  return async (dispatch: Function) => {
+    dispatch(actions.request('groupSaldos'));
+    dispatch(actions.groupSaldos.get(await api.getDailyGroupSaldos(fromDate)));
+    dispatch(actions.receive('groupSaldos'));
   };
 }
