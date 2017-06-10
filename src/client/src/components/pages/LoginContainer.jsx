@@ -9,6 +9,7 @@ const LoginContainer = props => <Login {...props} />;
 
 const mapStateToProps = (state) => ({
   loggedInUser: state.app.getIn(['login', 'username']),
+  error: state.app.getIn(['login', 'error']),
 });
 
 const mapDispatchToProps = {

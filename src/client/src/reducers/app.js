@@ -1,14 +1,20 @@
 // @flow
-import { fromJS, List, Map } from 'immutable';
+import { fromJS } from 'immutable';
 import { handleActions } from 'redux-actions';
-import { logInUser } from '../actions/app';
+import * as actions from '../actions/app';
 
 const defaultState = {
   login: {
     username: null,
+    error: false,
   }
 };
 
 export default handleActions({
-  [logInUser]: (state, action) => state.setIn(['login', 'username'], action.payload),
+  [actions.loginUser]: (state, action) => state.mergeIn(['login'], {
+    username: action.payload,
+    error: false
+  }),
+  [actions.loginError]: state => state.setIn(['login', 'error'], true),
+
 }, fromJS(defaultState));
