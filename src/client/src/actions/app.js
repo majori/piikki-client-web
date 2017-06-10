@@ -1,8 +1,16 @@
 // @flow
-import { createActions } from 'redux-actions';
+import { createAction } from 'redux-actions';
 
-const actions = createActions({
+import * as apiActions from './api';
 
-});
+export const logInUser = createAction('LOGIN_USER');
 
-export default actions;
+export const authenticateUser = (username: string, password: string) => {
+  return async (dispatch: Function) => {
+    const res = await dispatch(apiActions.authenticateUser(username, password));
+    if (res.authenticated) {
+      dispatch(logInUser(res.username));
+    }
+  };
+};
+

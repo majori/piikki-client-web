@@ -1,9 +1,9 @@
 import React from 'react';
 
-const UserListContainer = () => (
-  <div>
-    User
-  </div>
-);
+const User = () => {
+  return (
+    <span>asd</span>
+  );
+};
 
-export default UserListContainer;
+export default User;

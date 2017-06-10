@@ -1,8 +1,8 @@
 // @flow
 import { Moment } from 'moment';
 import { createActions } from 'redux-actions';
+import * as _ from 'lodash';
 import * as api from '../services/api';
-
 
 const actions = createActions({
   REQUEST: (target: string) => target,
@@ -16,37 +16,45 @@ const actions = createActions({
     GET: (user: User) => user,
   },
 
+  AUTHENTICATION: {
+    POST: auth => auth,
+  },
+
   TRANSACTION: {
-    POST: (username: string, amount: number) => ({ username, amount })
+    POST: (username: string, amount: number) => ({ username, amount }),
   },
 
   GROUP_SALDOS: {
-    GET: (saldos) => saldos,
-  }
+    GET: (saldos: any) => saldos,
+  },
 });
 
 export default actions;
 
-export function getUsers() {
+function apiActionFactory(target: string, request: Promise<any>, method: string = 'get') {
   return async (dispatch: Function) => {
-    dispatch(actions.request('users'));
-    dispatch(actions.users.get(await api.getUsers()));
-    dispatch(actions.receive('users'));
+    dispatch(actions.request(target));
+
+    const req = await request;
+    dispatch(_.get(actions, [target, method])(req));
+
+    dispatch(actions.receive(target));
+    return req;
   };
+}
+
+export function getUsers() {
+  return apiActionFactory('users', api.getUsers());
 }
 
 export function getUser(username: string) {
-  return async (dispatch: Function) => {
-    dispatch(actions.request('user'));
-    dispatch(actions.user.get(await api.getUser(username)));
-    dispatch(actions.receive('user'));
-  };
+  return apiActionFactory('user', api.getUser(username));
 }
 
 export function getDailyGroupSaldos(fromDate: Moment) {
-  return async (dispatch: Function) => {
-    dispatch(actions.request('groupSaldos'));
-    dispatch(actions.groupSaldos.get(await api.getDailyGroupSaldos(fromDate)));
-    dispatch(actions.receive('groupSaldos'));
-  };
+  return apiActionFactory('groupSaldos', api.getDailyGroupSaldos(fromDate));
+}
+
+export function authenticateUser(username: string, password: string) {
+  return apiActionFactory('authentication', api.authenticateUser(username, password), 'post');
 }

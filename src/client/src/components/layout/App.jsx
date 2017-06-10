@@ -4,8 +4,11 @@ import { Route } from 'react-router-dom';
 
 import Header from './Header';
 
+import PrivateRoute from '../common/PrivateRouteContainer';
 import Group from '../pages/Group';
 import User from '../pages/User';
+import Login from '../pages/LoginContainer';
+
 
 class App extends React.Component {
 
@@ -18,7 +21,8 @@ class App extends React.Component {
       <div className="container">
         <Header />
         <Route path="/group" component={Group} />
-        <Route path="/user" component={User} />
+        <Route path="/login" component={Login} />
+        <PrivateRoute path="/user" component={User} />
       </div>
     );
   }

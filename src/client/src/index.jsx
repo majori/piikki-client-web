@@ -10,6 +10,7 @@ import thunk from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
+import { combineForms } from 'react-redux-form';
 
 // Misc dependencies
 import createHistory from 'history/createBrowserHistory';
@@ -28,6 +29,9 @@ const history = createHistory();
 const combineWithOwnReducers = () => combineReducers({
   ...reducers,
   routing: routerReducer,
+  models: combineForms({
+
+  }, 'models'),
 });
 
 const store = createStore(

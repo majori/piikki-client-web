@@ -5,10 +5,10 @@ import GroupGraphContainer from '../common/GroupGraphContainer';
 
 const Group = () => (
   <div className="row">
-    <div className="col s6">
+    <div className="col s4">
       <UserListContainer />
     </div>
-    <div className="col s6">
+    <div className="col s8">
       <GroupGraphContainer />
     </div>
   </div>
