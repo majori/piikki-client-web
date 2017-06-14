@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 import * as _ from 'lodash';
 
 const PrivateRouteContainer = ({ component: Component, loggedInUser, ...rest }) => (
@@ -16,10 +16,7 @@ const PrivateRouteContainer = ({ component: Component, loggedInUser, ...rest }) 
 );
 
 const mapStateToProps = (state) => ({
-  // This allows to component update when route changes
-  // otherwise redirect doesn't work
-  pathname: state.routing.location.pathname,
   loggedInUser: state.app.getIn(['login', 'username']),
 });
 
-export default connect(mapStateToProps)(PrivateRouteContainer);
+export default withRouter(connect(mapStateToProps)(PrivateRouteContainer));

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import UserListContainer from '../common/UserListContainer';
-import GroupGraphContainer from '../common/GroupGraphContainer';
+import UserListContainer from './components/UserListContainer';
+import GroupGraphContainer from './components/GroupGraphContainer';
 
 const Group = () => (
   <div className="row">

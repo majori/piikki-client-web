@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as moment from 'moment';
-import * as _ from 'lodash';
 
-import { getParsedGroupSaldos } from '../../selectors/saldoSelector';
-import { getDailyGroupSaldos } from '../../actions/api';
+import { getParsedGroupSaldos } from '../../../../selectors/saldoSelector';
+import { getDailyGroupSaldos } from '../../../../actions/api';
 
 import GroupGraph from './GroupGraph';
 

@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getUsers } from '../../actions/api';
-import { sortUsersBySaldo } from '../../selectors/userSelector';
+import { getUsers } from '../../../../actions/api';
+import { sortUsersBySaldo } from '../../../../selectors/userSelector';
 
 import UserList from './UserList';
 

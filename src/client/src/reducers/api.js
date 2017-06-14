@@ -14,7 +14,10 @@ const defaultState = {
 
   user: {
     loading: false,
-    results: {},
+    results: {
+      username: null,
+      saldo: null,
+    },
   },
 
   transaction: {
