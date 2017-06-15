@@ -36,7 +36,7 @@ const defaultState = {
       username: '',
       authenticated: null,
     },
-  }
+  },
 };
 
 export default handleActions({

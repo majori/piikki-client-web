@@ -1,14 +1,22 @@
 import React from 'react';
 
-const UserTransactions = (props) => (
-  <div className="card">
-    <div className="card-content">
-      <span className="card-title">Saldo</span>
-      <div className="center-align">
-        <h2>{props.saldo}</h2>
+const UserTransactions = (props) => {
+  const handleTransaction = async (amount: number) => {
+    props.makeTransaction(props.user.username, amount);
+  };
+
+  return (
+    <div className="card">
+      <div className="card-content">
+        <span className="card-title">Saldo</span>
+        <div className="center-align">
+          <h2>{props.user.saldo}</h2>
+        </div>
+        <button className="btn" onClick={handleTransaction.bind(this, -1)}>-1</button>
+        <button className="btn right" onClick={handleTransaction.bind(this, 1)}>+1</button>
       </div>
     </div>
-  </div>
-);
+  );
+}
 
 export default UserTransactions;

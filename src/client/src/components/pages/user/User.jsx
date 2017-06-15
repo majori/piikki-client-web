@@ -2,11 +2,11 @@ import React from 'react';
 
 import UserTransactions from './components/UserTransactionsContainer';
 
-const User = () => {
+const User = (props) => {
   return (
     <div className="row">
       <div className="col s4">
-        <UserTransactions />
+        <UserTransactions user={props.user} />
       </div>
     </div>
   );

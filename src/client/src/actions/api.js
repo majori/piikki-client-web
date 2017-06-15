@@ -58,3 +58,7 @@ export function getDailyGroupSaldos(fromDate: Moment) {
 export function authenticateUser(username: string, password: string) {
   return apiActionFactory('authentication', api.authenticateUser(username, password), 'post');
 }
+
+export function makeTransaction(username: string, amount: number) {
+  return apiActionFactory('transaction', api.makeTransaction(username, amount), 'post');
+}
