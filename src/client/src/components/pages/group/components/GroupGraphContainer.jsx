@@ -9,7 +9,7 @@ import GroupGraph from './GroupGraph';
 
 class GroupGraphContainer extends Component {
   componentWillMount() {
-    this.props.getDailyGroupSaldos(moment().subtract(7, 'days'));
+    this.props.getDailyGroupSaldos(moment().subtract(15, 'days'));
   }
 
   render() {

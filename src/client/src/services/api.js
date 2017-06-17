@@ -43,6 +43,6 @@ export async function makeTransaction(username: string, amount: number) {
 }
 
 export async function getDailyGroupSaldos(from: Moment) {
-  return makeRequest(req.get('/group/saldo/daily').query({ timestamp: from.format('YYYY-MM-DD HH:mm:ss') }));
+  return makeRequest(req.get('/group/saldo/daily').query({ from: from.format() }));
 }
 
