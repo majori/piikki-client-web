@@ -1,12 +1,18 @@
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis } from 'recharts';
+import { ResponsiveContainer, BarChart, CartesianGrid, Bar, Tooltip, XAxis, YAxis } from 'recharts';
 
 const GroupGraph = (props) => (
-  <LineChart width={400} height={400} data={props.groupSaldos}>
-    <XAxis dataKey="timestamp" />
-    <YAxis datakey="saldo" />
-    <Line type="monotone" dataKey="saldo" stroke="#8884d8" />
-  </LineChart>
+  <div className = "group-graph white z-depth-1">
+    <ResponsiveContainer height={400}>
+      <BarChart data={props.groupSaldos}>
+        <XAxis dataKey="timestamp" />
+        <YAxis datakey="saldo" />
+        <CartesianGrid strokeDasharray="3 3" />
+        <Tooltip />
+        <Bar dataKey="saldo" fill="#8884d8" />
+      </BarChart>
+    </ResponsiveContainer>
+  </div>
 );
 
 export default GroupGraph;
