@@ -31,7 +31,7 @@ export const authenticateUser = (username: string, password: string) => {
 export const makeTransaction = (username: string, amount: number) => {
   return async (dispatch: Function) => {
     const res = await dispatch(apiActions.makeTransaction(username, amount));
-    dispatch(updateSaldo(_.first(res).saldo));
+    dispatch(updateSaldo(res.saldo));
   };
 };
 
