@@ -1,17 +1,32 @@
+// @flow
 import React from 'react';
 import { ResponsiveContainer, BarChart, CartesianGrid, Bar, Tooltip, XAxis, YAxis } from 'recharts';
 
-const GroupGraph = (props) => (
-  <div className = "group-graph white z-depth-1">
-    <ResponsiveContainer height={400}>
-      <BarChart data={props.groupSaldos}>
-        <XAxis dataKey="timestamp" />
-        <YAxis datakey="saldo" />
-        <CartesianGrid strokeDasharray="3 3" />
-        <Tooltip />
-        <Bar dataKey="saldo" fill="#8884d8" />
-      </BarChart>
-    </ResponsiveContainer>
+import LoadingIcon from '../../../common/LoadingIcon';
+import AxisLabel from '../../../common/AxisLabel';
+
+type GroupGraphProps = {
+  groupSaldos: any[];
+  loading: boolean;
+};
+
+const GroupGraph = (props: GroupGraphProps) => (
+  <div className="card group-graph">
+    {
+      (props.loading) ?
+        <LoadingIcon /> :
+        (
+          <ResponsiveContainer height={380}>
+            <BarChart data={props.groupSaldos}>
+              <XAxis dataKey="timestamp" label={({ viewBox }) => <AxisLabel {...viewBox} axisType="xAxis">Date</AxisLabel>} />
+              <YAxis datakey="saldo" label={({ viewBox }) => <AxisLabel {...viewBox} axisType="yAxis">Overall balance (€)</AxisLabel>} />
+              <CartesianGrid strokeDasharray="3 3" />
+              <Tooltip />
+              <Bar dataKey="saldo" name="Saldo" fill="#5b69bf" />
+            </BarChart>
+          </ResponsiveContainer>
+        )
+    }
   </div>
 );
 

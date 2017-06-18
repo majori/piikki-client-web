@@ -25,6 +25,11 @@ const defaultState = {
     results: {},
   },
 
+  group: {
+    loading: false,
+    results: {},
+  },
+
   groupSaldos: {
     loading: false,
     results: [],
@@ -47,4 +52,5 @@ export default handleActions({
   [actions.transaction.post]: (state, action) => state.setIn(['transaction', 'results'], Map(action.payload)),
   [actions.groupSaldos.get]: (state, action) => state.setIn(['groupSaldos', 'results'], List(action.payload)),
   [actions.authentication.post]: (state, action) => state.setIn(['authentication', 'results'], Map(action.payload)),
+  [actions.group.get]: (state, action) => state.setIn(['group', 'results'], Map(action.payload))
 }, fromJS(defaultState));

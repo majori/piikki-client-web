@@ -1,6 +1,15 @@
+// @flow
 import React from 'react';
 
-const UserTransactions = (props) => {
+type UserTransactionsProps = {
+  makeTransaction: Function,
+  user: {
+    username: string;
+    saldo: number;
+  }
+}
+
+const UserTransactions = (props: UserTransactionsProps) => {
   const handleTransaction = async (amount: number) => {
     props.makeTransaction(props.user.username, amount);
   };

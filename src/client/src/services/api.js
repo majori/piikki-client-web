@@ -26,6 +26,10 @@ async function makeRequest(request: req.SuperAgentRequest) {
   }
 }
 
+export async function getGroup() {
+  return makeRequest(req.get('/group'));
+}
+
 export async function getUsers() {
   return makeRequest(req.get('/group/members'));
 }

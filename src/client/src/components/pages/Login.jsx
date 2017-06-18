@@ -5,9 +5,9 @@ import { Redirect } from 'react-router-dom';
 import * as _ from 'lodash';
 
 type LoginProps = {
-  authenticateUser: Function,
-  loggedInUser: string,
-  error: boolean,
+  authenticateUser: Function;
+  loggedInUser: string;
+  error: boolean;
 };
 
 const Login = (props: LoginProps) => {

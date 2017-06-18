@@ -27,6 +27,10 @@ const actions = createActions({
   GROUP_SALDOS: {
     GET: (saldos: any) => saldos,
   },
+
+  GROUP: {
+    GET: (group: any) => group,
+  }
 });
 
 export default actions;
@@ -41,6 +45,10 @@ function apiActionFactory(target: string, request: Promise<any>, method: string 
     dispatch(actions.receive(target));
     return req;
   };
+}
+
+export function getGroup() {
+  return apiActionFactory('group', api.getGroup());
 }
 
 export function getUsers() {

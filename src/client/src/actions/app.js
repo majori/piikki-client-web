@@ -7,17 +7,25 @@ import * as apiActions from './api';
 export const loginUser = createAction('LOGIN_USER');
 export const loginError = createAction('LOGIN_ERROR');
 
+export const setGroup = createAction('SET_GROUP');
 export const setUser = createAction('SET_USER');
 export const updateSaldo = createAction('UPDATE_SALDO');
 
-export const getUser = (username: string) => {
+export function getGroup() {
+  return async (dispatch: Function) => {
+    const res = await dispatch(apiActions.getGroup());
+    dispatch(setGroup(res));
+  };
+}
+
+export function getUser(username: string) {
   return async (dispatch: Function) => {
     const res = await dispatch(apiActions.getUser(username));
     dispatch(setUser(res));
   };
-};
+}
 
-export const authenticateUser = (username: string, password: string) => {
+export function authenticateUser(username: string, password: string) {
   return async (dispatch: Function) => {
     const res = await dispatch(apiActions.authenticateUser(username, password));
     if (res.authenticated) {
@@ -26,12 +34,11 @@ export const authenticateUser = (username: string, password: string) => {
       dispatch(loginError());
     }
   };
-};
+}
 
-export const makeTransaction = (username: string, amount: number) => {
+export function makeTransaction(username: string, amount: number) {
   return async (dispatch: Function) => {
     const res = await dispatch(apiActions.makeTransaction(username, amount));
     dispatch(updateSaldo(res.saldo));
   };
-};
-
+}
