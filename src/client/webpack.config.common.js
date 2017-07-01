@@ -74,10 +74,9 @@ module.exports = () => ({
 
     new webpack.DefinePlugin({
       'process.env': {
-        frontUrl: JSON.stringify(process.env.PIIKKI_WEB_FRONT_URL || 'http://localhost:3600'),
+        frontUrl: JSON.stringify(process.env.PIIKKI_WEB_FRONT_URL || 'http://localhost:5000'),
         backendUrl: JSON.stringify(process.env.PIIKKI_WEB_BACKEND_URL || 'http://localhost:5000'),
-        token: JSON.stringify(process.env.PIIKKI_WEB_TOKEN || 'restricted_token'),
-        apiUrl: JSON.stringify(process.env.PIIKKI_WEB_API_URL || 'https://piikki-backend-dev.azurewebsites.net/api/v1'),
+        apiUrl: JSON.stringify(process.env.PIIKKI_WEB_API_URL || 'http://localhost:5000/proxy'),
       },
     }),
 

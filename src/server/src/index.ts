@@ -4,10 +4,10 @@ async function startServer() {
   const server = await createServer({});
   const cfg = {
     host: 'localhost',
-    port: 80,
+    port: 5000,
   };
 
-  server.listen(cfg.port, cfg.host, () => {
+  server.http.listen(cfg.port, cfg.host, () => {
     console.log(`Server listening on http://${cfg.host}:${cfg.port}`);
   });
 }

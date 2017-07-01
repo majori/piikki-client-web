@@ -4,11 +4,9 @@ import * as prefix from 'superagent-prefix';
 import { Moment } from 'moment';
 
 const apiUrl = ((process.env.apiUrl: any): string);
-const token = ((process.env.token: any): string);
 
 async function makeRequest(request: req.SuperAgentRequest) {
-  request.use(prefix(`${apiUrl}/restricted`));
-  request.set({ Authorization: token });
+  request.use(prefix(`${apiUrl}/api/v1/restricted`));
 
   try {
     const res: req.Response = await request;

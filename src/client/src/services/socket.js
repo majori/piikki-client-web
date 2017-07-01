@@ -1,8 +1,8 @@
 // @flow
-import * as socketIO from 'socket.io-client';
+import * as sio from 'socket.io-client';
 
-const apiUrl: string = window.env.apiUrl;
+const apiUrl: string = 'http://localhost:5000';
 
-const socket = socketIO(apiUrl);
+const socket = sio(apiUrl);
 
 export default socket;

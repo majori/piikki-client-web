@@ -45,6 +45,7 @@ module.exports = () => webpackMerge(baseConfig(), {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development'),
+        frontUrl: JSON.stringify(process.env.PIIKKI_WEB_FRONT_URL || `http://${server.host}:${server.port}`),
       },
     }),
   ],
