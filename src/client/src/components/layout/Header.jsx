@@ -5,7 +5,12 @@ import * as _ from 'lodash';
 
 import logo from '../../assets/img/piikki-logo-title.png';
 
+type HeaderProps = {
+  loggedIn: boolean;
+}
+
 class Header extends Component {
+  props: HeaderProps;
 
   componentWillMount() {
     // $('.button-collapse').sideNav();
@@ -16,6 +21,10 @@ class Header extends Component {
       <Link to="/group"><i className="material-icons">group</i></Link>,
       <Link to="/user"><i className="material-icons">person</i></Link>,
     ];
+
+    if (this.props.loggedIn) {
+      links.push(<Link to="/logout"><i className="material-icons">exit_to_app</i></Link>);
+    }
 
     return (
       <nav className="header">

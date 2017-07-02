@@ -6,6 +6,7 @@ import * as apiActions from './api';
 
 export const loginUser = createAction('LOGIN_USER');
 export const loginError = createAction('LOGIN_ERROR');
+export const logoutUser = createAction('LOGOUT_USER');
 
 export const setGroup = createAction('SET_GROUP');
 export const setUser = createAction('SET_USER');

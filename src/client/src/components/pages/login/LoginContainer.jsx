@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { authenticateUser } from '../../actions/app';
+import { authenticateUser } from '../../../actions/app';
 
 import Login from './Login';
 

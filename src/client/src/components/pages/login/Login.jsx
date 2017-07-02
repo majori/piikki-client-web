@@ -17,7 +17,11 @@ const Login = (props: LoginProps) => {
     props.authenticateUser(username, password);
   };
 
-  return (_.isEmpty(props.loggedInUser)) ? (
+  if (!_.isEmpty(props.loggedInUser)) {
+    return <Redirect to={fromURL} />;
+  }
+
+  return (
     <div className="row">
       <div className="col s6 offset-s3">
         <LocalForm onSubmit={handleSubmit}>
@@ -32,7 +36,7 @@ const Login = (props: LoginProps) => {
         )}
       </div>
     </div>
-  ) : <Redirect to={fromURL} />;
+  );
 };
 
 export default Login;
