@@ -4,3 +4,7 @@ declare var module: {
     accept(path: string, callback: () => void): void;
   };
 };
+
+declare module SCSSModule {
+  declare var exports: { [key: string]: string };
+}

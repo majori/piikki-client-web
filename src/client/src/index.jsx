@@ -14,6 +14,7 @@ import { combineForms } from 'react-redux-form';
 
 // Misc dependencies
 import createHistory from 'history/createBrowserHistory';
+import { initializeSocket } from './services/socket';
 
 // Own reducers
 import reducers from './reducers/index';
@@ -40,6 +41,8 @@ const store = createStore(
     applyMiddleware(thunk, promiseMiddleware(), routerMiddleware(history))
   )
 );
+
+initializeSocket(store);
 
 const render = (Component) => {
   ReactDOM.render(

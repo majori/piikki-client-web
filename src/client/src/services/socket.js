@@ -1,8 +1,28 @@
 // @flow
 import * as sio from 'socket.io-client';
+import { Store } from 'redux';
 
-const apiUrl: string = 'http://localhost:5000';
+import { loginUser, setCard } from '../actions/app';
 
-const socket = sio(apiUrl);
+const socket = sio(process.env.backendUrl);
+
+export function initializeSocket(store: Store<any>) {
+  socket.on('connect_error', (timeout) => {
+    console.log('Disconnecting socket')
+    socket.close();
+  });
+
+  socket.on('user', (username: string) => {
+    store.dispatch(loginUser(username));
+  });
+
+  socket.on('card', (cardId: string) => {
+    store.dispatch(setCard(cardId));
+  });
+
+  socket.on('reader-error', (data) => {
+    console.log(data);
+  });
+}
 
 export default socket;
