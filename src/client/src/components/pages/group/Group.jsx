@@ -3,6 +3,7 @@ import React from 'react';
 
 import UserListContainer from './components/UserListContainer';
 import GroupGraphContainer from './components/GroupGraphContainer';
+import LatestTransactionsContainer from './components/LatestTransactionsContainer';
 
 type GroupProps = {
   group: {
@@ -24,6 +25,9 @@ const Group = (props: GroupProps) => (
     </div>
     <div className="col s8">
       <GroupGraphContainer />
+    </div>
+    <div className="col s6">
+      <LatestTransactionsContainer />
     </div>
   </div>
 );

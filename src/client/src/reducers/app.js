@@ -3,7 +3,7 @@ import { Map, fromJS } from 'immutable';
 import { handleActions } from 'redux-actions';
 import * as actions from '../actions/app';
 
-const defaultState = {
+const defaultState: AppDefaultState = {
   user: {
     username: null,
     saldo: null,
@@ -16,6 +16,10 @@ const defaultState = {
   login: {
     username: null,
     error: false,
+  },
+
+  card: {
+    id: null,
   }
 };
 
@@ -29,5 +33,6 @@ export default handleActions({
   [actions.setGroup]: (state, action) => state.set('group', Map(action.payload)),
   [actions.setUser]: (state, action) => state.set('user', Map(action.payload)),
   [actions.updateSaldo]: (state, action) => state.setIn(['user', 'saldo'], action.payload),
+  [actions.setCard]: (state, action) => state.setIn(['card', 'id'], action.payload),
 
 }, fromJS(defaultState));

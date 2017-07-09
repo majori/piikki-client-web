@@ -3,7 +3,7 @@ import { fromJS, List, Map } from 'immutable';
 import { handleActions } from 'redux-actions';
 import actions from '../actions/api';
 
-const defaultState = {
+const defaultState: ApiDefaultState = {
   users: {
     loading: false,
     results: [],
@@ -23,6 +23,11 @@ const defaultState = {
   transaction: {
     loading: false,
     results: {},
+  },
+
+  transactions: {
+    loading: false,
+    results: [],
   },
 
   group: {
@@ -50,6 +55,7 @@ export default handleActions({
   [actions.users.get]: (state, action) => state.setIn(['users', 'results'], List(action.payload)),
   [actions.user.get]: (state, action) => state.setIn(['user', 'results'], Map(action.payload)),
   [actions.transaction.post]: (state, action) => state.setIn(['transaction', 'results'], Map(action.payload)),
+  [actions.transactions.get]: (state, action) => state.setIn(['transactions', 'results'], List(action.payload)),
   [actions.groupSaldos.get]: (state, action) => state.setIn(['groupSaldos', 'results'], List(action.payload)),
   [actions.authentication.post]: (state, action) => state.setIn(['authentication', 'results'], Map(action.payload)),
   [actions.group.get]: (state, action) => state.setIn(['group', 'results'], Map(action.payload))

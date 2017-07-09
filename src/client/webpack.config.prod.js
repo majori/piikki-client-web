@@ -14,6 +14,7 @@ module.exports = () => webpackMerge(baseConfig(), {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
+        apiUrl: JSON.stringify(process.env.PIIKKI_WEB_API_URL || 'http://localhost:5000/proxy'),
       },
     }),
 

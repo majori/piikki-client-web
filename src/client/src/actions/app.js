@@ -12,6 +12,8 @@ export const setGroup = createAction('SET_GROUP');
 export const setUser = createAction('SET_USER');
 export const updateSaldo = createAction('UPDATE_SALDO');
 
+export const setCard = createAction('SET_CARD');
+
 export function getGroup() {
   return async (dispatch: Function) => {
     const res = await dispatch(apiActions.getGroup());

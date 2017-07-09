@@ -5,8 +5,12 @@ import { Moment } from 'moment';
 
 const apiUrl = ((process.env.apiUrl: any): string);
 
-async function makeRequest(request: req.SuperAgentRequest) {
+async function requestFactory(request: req.SuperAgentRequest) {
   request.use(prefix(`${apiUrl}/api/v1/restricted`));
+
+  if (process.env.NODE_ENV !== 'production') {
+    request.set('Authorization', 'restricted_token');
+  }
 
   try {
     const res: req.Response = await request;
@@ -25,26 +29,30 @@ async function makeRequest(request: req.SuperAgentRequest) {
 }
 
 export async function getGroup() {
-  return makeRequest(req.get('/group'));
+  return requestFactory(req.get('/group'));
 }
 
 export async function getUsers() {
-  return makeRequest(req.get('/group/members'));
+  return requestFactory(req.get('/group/members'));
 }
 
 export async function getUser(username: string) {
-  return makeRequest(req.get(`/group/members/${username}`));
+  return requestFactory(req.get(`/group/members/${username}`));
 }
 
 export async function authenticateUser(username: string, password: string) {
-  return makeRequest(req.post('/users/authenticate').send({ username, password }));
+  return requestFactory(req.post('/users/authenticate').send({ username, password }));
 }
 
 export async function makeTransaction(username: string, amount: number) {
-  return makeRequest(req.post('/transaction').send({ username, amount }));
+  return requestFactory(req.post('/transaction').send({ username, amount }));
 }
 
 export async function getDailyGroupSaldos(from: Moment) {
-  return makeRequest(req.get('/group/saldo/daily').query({ from: from.format() }));
+  return requestFactory(req.get('/group/saldo/daily').query({ from: from.format() }));
+}
+
+export async function getLatestTransactions(from: Moment) {
+  return requestFactory(req.get('/group/transactions').query({ from: from.format() }));
 }
 

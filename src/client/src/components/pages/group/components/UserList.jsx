@@ -11,29 +11,34 @@ type UserListProps = {
 
 const UserList = (props: UserListProps) => (
   <div className="card user-list">
-    {
-      (props.loading) ?
-        <LoadingIcon /> :
-        (
-          <table className="bordered">
-            <thead>
-              <tr>
-                <th>Username</th>
-                <th>Saldo</th>
-              </tr>
-            </thead>
-            <tbody>
-              { _.map(props.users, user => (
-                <tr key={user.username}>
-                  <td>{user.username}</td>
-                  <td>{user.saldo}</td>
+    <div className="card-title">
+      <h5>Member saldos</h5>
+    </div>
+    <div className="card-content">
+      {
+        (props.loading) ?
+          <LoadingIcon /> :
+          (
+            <table className="bordered">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Saldo</th>
                 </tr>
-                )
-              )}
-            </tbody>
-          </table>
-        )
-    }
+              </thead>
+              <tbody>
+                { _.map(props.users, user => (
+                  <tr key={user.username}>
+                    <td>{user.username}</td>
+                    <td>{user.saldo}</td>
+                  </tr>
+                  )
+                )}
+              </tbody>
+            </table>
+          )
+      }
+    </div>
   </div>
 );
 

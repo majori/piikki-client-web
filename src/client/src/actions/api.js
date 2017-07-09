@@ -24,6 +24,10 @@ const actions = createActions({
     POST: (username: string, amount: number) => ({ username, amount }),
   },
 
+  TRANSACTIONS: {
+    GET: (transactions: Transaction[]) => transactions,
+  },
+
   GROUP_SALDOS: {
     GET: (saldos: any) => saldos,
   },
@@ -61,6 +65,10 @@ export function getUser(username: string) {
 
 export function getDailyGroupSaldos(fromDate: Moment) {
   return apiActionFactory('groupSaldos', api.getDailyGroupSaldos(fromDate));
+}
+
+export function getLatestTransactions(fromDate: Moment) {
+  return apiActionFactory('transactions', api.getLatestTransactions(fromDate));
 }
 
 export function authenticateUser(username: string, password: string) {

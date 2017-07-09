@@ -76,7 +76,6 @@ module.exports = () => ({
       'process.env': {
         frontUrl: JSON.stringify(process.env.PIIKKI_WEB_FRONT_URL || 'http://localhost:5000'),
         backendUrl: JSON.stringify(process.env.PIIKKI_WEB_BACKEND_URL || 'http://localhost:5000'),
-        apiUrl: JSON.stringify(process.env.PIIKKI_WEB_API_URL || 'http://localhost:5000/proxy'),
       },
     }),
 
