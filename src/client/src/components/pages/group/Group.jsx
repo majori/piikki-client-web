@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 
+import Card from '../../common/Card';
 import UserListContainer from './components/UserListContainer';
 import GroupGraphContainer from './components/GroupGraphContainer';
 import LatestTransactionsContainer from './components/LatestTransactionsContainer';
@@ -14,11 +15,7 @@ type GroupProps = {
 const Group = (props: GroupProps) => (
   <div className="row group">
     <div className="col s12">
-      <div className="card group-header center-align">
-        <div className="card-content">
-          <h3>{props.group.name}</h3>
-        </div>
-      </div>
+      <Card title={props.group.name} biggerHeader />
     </div>
     <div className="col s4">
       <UserListContainer />

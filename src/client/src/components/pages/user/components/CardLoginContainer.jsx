@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 
 import { showModal } from '../../../../actions/modal';
 
-import Cards from './Cards';
+import CardLogin from './CardLogin';
 
-class CardsContainer extends Component {
+class CardLoginContainer extends Component {
   componentWillMount() {
 
   }
 
   render() {
-    return <Cards {...this.props} />;
+    return <CardLogin {...this.props} />;
   }
 }
 
@@ -23,4 +23,4 @@ const mapDispatchToProps = {
   showModal
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CardsContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(CardLoginContainer);
