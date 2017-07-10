@@ -16,6 +16,10 @@ const actions = createActions({
     GET: (user: User) => user,
   },
 
+  ALTERNATIVE_LOGIN: {
+    POST: (username: string, id: string) => ({ username, id })
+  },
+
   AUTHENTICATION: {
     POST: auth => auth,
   },
@@ -77,4 +81,8 @@ export function authenticateUser(username: string, password: string) {
 
 export function makeTransaction(username: string, amount: number) {
   return apiActionFactory('transaction', api.makeTransaction(username, amount), 'post');
+}
+
+export function createAlternativeLogin(username: string, id: string) {
+  return apiActionFactory('alternativeLogin', api.createAlternativeLogin(username, id), 'post');
 }

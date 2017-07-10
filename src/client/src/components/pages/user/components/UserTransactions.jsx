@@ -16,8 +16,10 @@ const UserTransactions = (props: UserTransactionsProps) => {
 
   return (
     <div className="card">
+      <div className="card-title">
+        <h4>Saldo</h4>
+      </div>
       <div className="card-content">
-        <span className="card-title">Saldo</span>
         <div className="center-align">
           <h2>{props.user.saldo}</h2>
         </div>

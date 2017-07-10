@@ -11,7 +11,7 @@ type LoginProps = {
 };
 
 const Login = (props: LoginProps) => {
-  const fromURL = _.get(props, 'location.state.from', { pathname: '/' });
+  const fromURL = _.get(props, 'location.state.from', { pathname: '/user' });
 
   const handleSubmit = ({ username, password }) => {
     props.authenticateUser(username, password);

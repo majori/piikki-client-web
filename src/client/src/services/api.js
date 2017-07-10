@@ -56,3 +56,7 @@ export async function getLatestTransactions(from: Moment) {
   return requestFactory(req.get('/group/transactions').query({ from: from.format() }));
 }
 
+export async function createAlternativeLogin(username: string, key: string) {
+  return requestFactory(req.post('/users/authenticate/alternative/create').send({ username, key, type: 20 }));
+}
+

@@ -3,7 +3,7 @@ import { fromJS, List, Map } from 'immutable';
 import { handleActions } from 'redux-actions';
 import actions from '../actions/api';
 
-const defaultState: ApiDefaultState = {
+const defaultState: ApiState = {
   users: {
     loading: false,
     results: [],
@@ -47,6 +47,11 @@ const defaultState: ApiDefaultState = {
       authenticated: null,
     },
   },
+
+  alterativeLogin: {
+    loading: false,
+    results: {},
+  },
 };
 
 export default handleActions({
@@ -58,5 +63,6 @@ export default handleActions({
   [actions.transactions.get]: (state, action) => state.setIn(['transactions', 'results'], List(action.payload)),
   [actions.groupSaldos.get]: (state, action) => state.setIn(['groupSaldos', 'results'], List(action.payload)),
   [actions.authentication.post]: (state, action) => state.setIn(['authentication', 'results'], Map(action.payload)),
-  [actions.group.get]: (state, action) => state.setIn(['group', 'results'], Map(action.payload))
+  [actions.group.get]: (state, action) => state.setIn(['group', 'results'], Map(action.payload)),
+  [actions.alternativeLogin.post]: (state, action) => state.setIn(['alternativeLogin', 'results'], Map(action.payload))
 }, fromJS(defaultState));

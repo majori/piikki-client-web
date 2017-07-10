@@ -2,12 +2,13 @@
 import React from 'react';
 
 import UserTransactions from './components/UserTransactionsContainer';
+import Cards from './components/CardsContainer';
 
 type UserProps = {
   user: {
     username: string;
     saldo: number;
-  }
+  };
 }
 
 const User = (props: UserProps) => {
@@ -22,6 +23,9 @@ const User = (props: UserProps) => {
       </div>
       <div className="col s4">
         <UserTransactions user={props.user} />
+      </div>
+      <div className="col s4">
+        <Cards />
       </div>
     </div>
   );

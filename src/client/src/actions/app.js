@@ -13,6 +13,9 @@ export const setUser = createAction('SET_USER');
 export const updateSaldo = createAction('UPDATE_SALDO');
 
 export const setCard = createAction('SET_CARD');
+export const clearCard = createAction('CLEAR_CARD');
+
+export const socketActive = createAction('SOCKET_ACTIVE');
 
 export function getGroup() {
   return async (dispatch: Function) => {
