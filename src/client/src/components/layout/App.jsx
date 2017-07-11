@@ -2,8 +2,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import socket from '../../services/socket';
-
 import Header from './HeaderContainer';
 import Modal from './ModalContainer';
 

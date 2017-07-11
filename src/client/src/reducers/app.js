@@ -14,7 +14,7 @@ const defaultState: AppState = {
   },
 
   login: {
-    username: 'user3',
+    username: null,
     error: false,
   },
 

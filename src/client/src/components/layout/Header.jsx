@@ -29,12 +29,11 @@ class Header extends Component {
     return (
       <nav className="header">
         <div className="nav-wrapper">
-          <Link className="brand-logo" to="/">
+          <Link className="brand-logo" to="/group">
             <img alt="Piikki" src={logo} />
           </Link>
           <ul className="right hide-on-med-and-down">
             {_.map(links, (link, i) => (<li key={i}>{link}</li>))}
-            <li></li>
           </ul>
           <ul className="side-nav" id="nav-mobile">
             {_.map(links, (link, i) => (<li key={i}>{link}</li>))}
