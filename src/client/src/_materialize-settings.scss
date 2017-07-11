@@ -35,7 +35,7 @@
 // 1. Colors
 // ==========================================================================
 
-$primary-color: lighten($theme-main, 50%);
+$primary-color: $theme-main;
 $primary-color-light: lighten($primary-color, 15%);
 $primary-color-dark: darken($primary-color, 15%);
 
@@ -69,7 +69,7 @@ $button-disabled-background: #DFDFDF;
 $button-disabled-color: #9F9F9F;
 
 // Raised buttons
-$button-raised-background: $secondary-color;
+$button-raised-background: $primary-color-light;
 $button-raised-background-hover: lighten($button-raised-background, 5%);
 $button-raised-color: #fff;
 
@@ -153,7 +153,7 @@ $input-border: 1px solid $input-border-color;
 $input-background: #fff;
 $input-error-color: $error-color;
 $input-success-color: $success-color;
-$input-focus-color: $secondary-color;
+$input-focus-color: $primary-color;
 $input-font-size: 1rem;
 $input-margin-bottom: 20px;
 $input-margin: 0 0 $input-margin-bottom 0;

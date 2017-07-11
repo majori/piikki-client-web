@@ -29,6 +29,7 @@ const ModalContainer = (props: ModalContainerProps) => {
     return (
       <Modal
         isOpen
+        className="modal-content"
         contentLabel="Modal"
         onRequestClose={handleHideModal}
       >

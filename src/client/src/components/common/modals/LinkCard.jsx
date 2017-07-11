@@ -31,7 +31,7 @@ const LinkCard = (props: LinkCardProps) => {
     <div>
       <h2>Card ID: {props.card}</h2>
       { props.readAt && (<span>Card read at: {moment(props.readAt).format('HH:mm:ss')}</span>)}
-      <button onClick={linkCard}>Link card</button>
+      <button className="btn" onClick={linkCard}>Link card</button>
     </div>
   );
 
