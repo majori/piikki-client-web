@@ -13,7 +13,7 @@ type LatestTransactionProps = {
 
 const LatestTransactions = (props: LatestTransactionProps) => {
   return (
-    <Card title="Last week transactions">
+    <Card title="Last week transactions" className="latest-transactions">
     {
       (props.loading && _.isEmpty(props.transactions)) ?
         <LoadingIcon /> :
@@ -30,7 +30,7 @@ const LatestTransactions = (props: LatestTransactionProps) => {
               { _.map(props.transactions, transaction => (
                 <tr key={transaction.timestamp}>
                   <td>{transaction.username}</td>
-                  <td>{moment(transaction.saldo).format('D.M. HH:mm:ss')}</td>
+                  <td>{moment(transaction.timestamp).format('D.M. HH:mm:ss')}</td>
                   <td>{transaction.newSaldo - transaction.oldSaldo}</td>
                 </tr>
                 )

@@ -17,7 +17,7 @@ const GroupGraph = (props: GroupGraphProps) => (
       (props.loading) ?
         <LoadingIcon /> :
         (
-          <ResponsiveContainer height={360}>
+          <ResponsiveContainer height={380}>
             <BarChart data={props.groupSaldos}>
               <XAxis dataKey="timestamp" label={({ viewBox }) => <AxisLabel {...viewBox} axisType="xAxis">Date</AxisLabel>} />
               <YAxis datakey="saldo" label={({ viewBox }) => <AxisLabel {...viewBox} axisType="yAxis">Overall balance (€)</AxisLabel>} />

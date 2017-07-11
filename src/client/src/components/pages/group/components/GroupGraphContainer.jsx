@@ -18,7 +18,7 @@ class GroupGraphContainer extends Component {
   props: GroupGraphContainerProps;
 
   componentWillMount() {
-    this.props.getDailyGroupSaldos(moment().subtract(15, 'days'));
+    this.props.getDailyGroupSaldos(moment().subtract(30, 'days'));
   }
 
   render() {

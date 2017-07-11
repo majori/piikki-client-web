@@ -1,5 +1,8 @@
 @import "./layout/Header";
 
+@import "./common/Card";
+
 @import "./pages/group/Group";
 @import "./pages/group/components/UserList";
 @import "./pages/group/components/GroupGraph";
+@import "./pages/group/components/LatestTransactions";

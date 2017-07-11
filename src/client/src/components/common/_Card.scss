@@ -1,0 +1,22 @@
+.card {
+  margin: 0 0 10px 0;
+  padding: 0 10px;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.card .card-title {
+  padding: 10px 0;
+  text-align: center;
+  & h3,h4,h5 {
+    margin: 0;
+  }
+}
+
+.card .card-content {
+  padding-top: 5px;
+}
+
+.card .loading-icon {
+  padding-top: 150px;
+}
