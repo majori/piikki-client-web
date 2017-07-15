@@ -11,7 +11,7 @@ import LinkCard from './LinkCard';
 const LinkCardContainer = props => <LinkCard {...props} />;
 
 const mapStateToProps = state => ({
-  ...state.app.get('card'),
+  card: state.app.getIn(['card', 'id']),
   username: state.app.getIn(['login', 'username']),
   socket: state.app.getIn(['socket', 'active']),
 });
